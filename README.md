@@ -11,7 +11,7 @@ The purpose of this system is to demonstrate what happens when a voter database,
 
 # Installation and Running
 
-### Docker
+### Docker (by far the easiest way to set up and run)
 
 Using [Docker and `docker-compose`](https://github.com/docker/compose):
 
