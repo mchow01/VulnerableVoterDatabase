@@ -51,5 +51,8 @@ sudo apt install nginx php-fpm mariadb-server git php-mysql php-gd
 5. "Free tech tools for election officials" https://gcn.com/articles/2020/10/08/election-security-tools.aspx
 6. "U.S. Voter Databases Offered for Free on Dark Web, Report" https://threatpost.com/u-s-voter-databases-offered-free-dark-web/158840/
 
+# Design Notes
+* I considered using 8080 as port for web server (in this case, `nginx`), but that will be problematic for testing the site using Burp Suite.
+
 # Acknowledgement
 Many thanks to "A Docker-Compose PHP Environment From Scratch" https://x-team.com/blog/docker-compose-php-environment-from-scratch/ as it served as the guide to create this system via containers.
