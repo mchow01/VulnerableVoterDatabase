@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  php-fpm:
+    container_name: vvd-php
+    build:
+      context: ./php-fpm
+    volumes:
+      - ../src:/var/www
+    networks:
+      - vvd_net
+  nginx:
+    container_name: vvd-web
+    build:
+      context: ./nginx
+    volumes:
+      - ../src:/var/www
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites/:/etc/nginx/sites-available
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - php-fpm
+    networks:
+      - vvd_net
+  database:
+    container_name: vvd-database
+    build:
+      context: ./database
+    environment:
+      - MYSQL_DATABASE=voterdb
+      - MYSQL_USER=hacked
+      - MYSQL_PASSWORD=epicfail
+      - MYSQL_ROOT_PASSWORD=docker
+    volumes:
+      - ./database/data.sql:/docker-entrypoint-initdb.d/data.sql
+    networks:
+      - vvd_net
+networks:
+  vvd_net:

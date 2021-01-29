@@ -1,0 +1,4 @@
+logs/
+.git
+*.md
+.cache
