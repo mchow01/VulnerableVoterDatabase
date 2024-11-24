@@ -17,8 +17,8 @@ Using [Docker and `docker-compose`](https://github.com/docker/compose):
 
 ```console
 cd docker
-docker-compose build
-docker-compose up
+docker compose build
+docker compose up
 ```
 
 The Vulnerable Voter Database should now be running at http://localhost/.
