@@ -1,5 +1,5 @@
 FROM mariadb:latest
 
-CMD ["mysqld"]
+CMD ["mariadbd"]
 
 EXPOSE 3306
